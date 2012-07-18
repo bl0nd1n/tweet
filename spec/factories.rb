@@ -14,4 +14,10 @@ FactoryGirl.define do
     content "Lorem ipsum"
     user
   end
+  
+   factory :pinpost do
+    title "Lorem ipsum for pins"
+    user
+  end
+  
 end

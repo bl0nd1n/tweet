@@ -1,0 +1,63 @@
+<% if signed_in? %>
+  <div class="row">
+  
+    
+    <div class="span12">
+		
+		
+          	  <h1>Listing all posts</h1>
+<% @myposts.each do |mypost| %>
+<div id="container">
+
+	 <div class="item">
+<li id="<%= mypost.id %>">
+
+  <%= link_to gravatar_for(mypost.user), mypost.user %>
+  
+  <span class="user">
+   <%= link_to mypost.user.name, mypost.user %>
+  </span>
+  <span class="title"><%= mypost.content %></span>
+
+   <span class="img"><%= link_to  image_tag(mypost.image_url), mypost %></span>
+
+
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(mypost.created_at) %> ago.
+  </span>
+   </div>
+</div>
+<% end %>
+	  
+	  
+    </div>
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to the Sample App</h1>
+
+    <h2>
+      This is the home page for the
+      <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+      sample application.
+    </h2>
+
+    <%= link_to "Sign up now!", signup_path, 
+                                class: "btn btn-large btn-primary" %>
+  </div>
+
+  <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+

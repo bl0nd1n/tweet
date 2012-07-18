@@ -18,6 +18,7 @@ describe User do
   it { should respond_to(:admin) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:microposts) }
+  it { should respond_to(:pinposts) }
   it { should respond_to(:feed) }
   it { should respond_to(:relationships) }
   it { should respond_to(:followed_users) }
@@ -141,7 +142,29 @@ describe User do
   end
 
 
-  describe "micropost associations" do
+  describe "pinpost associations" do
+
+    before { @user.save }
+    let!(:older_pinpost) do 
+      FactoryGirl.create(:pinpost, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_pinpost) do
+      FactoryGirl.create(:pinpost, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right microposts in the right order" do
+      @user.pinposts.should == [newer_pinpost, older_pinpost]
+    end
+  
+    it "should destroy associated pinposts" do
+      pinposts = @user.pinposts
+      @user.destroy
+      pinposts.each do |pinpost|
+        Pinpost.find_by_id(pinpost.id).should be_nil
+      end
+    end
+  
+   describe "micropost associations" do
 
     before { @user.save }
     let!(:older_micropost) do 
@@ -162,6 +185,7 @@ describe User do
         Micropost.find_by_id(micropost.id).should be_nil
       end
     end
+  end
   
     describe "status" do
       let(:unfollowed_post) do

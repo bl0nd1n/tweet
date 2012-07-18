@@ -18,6 +18,7 @@ html {
 
 body {
   padding-top: 60px;
+  
 }
 
 section {
@@ -42,6 +43,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+
+
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
@@ -49,6 +52,8 @@ h1 {
 }
 
 h2 {
+
+
   font-size: 1.7em;
   letter-spacing: -1px;
   margin-bottom: 30px;
@@ -66,6 +71,11 @@ p {
 /* header */
 
 #logo {
+
+  font-family: 'Lobster', serif;
+  font-size: 48px;
+  text-shadow: 4px 4px 4px #aaa;
+  
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
@@ -240,3 +250,38 @@ aside {
     margin-bottom: 5px;
   }
 }
+
+/* pinposts */
+
+.pinposts {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.title {
+   display: block;
+}
+.timestamp {
+  color: $grayLight;
+}
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+
+ .item {
+      width: 180px;
+      margin: 3px;
+      float: left;
+    }

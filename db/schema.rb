@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120308215846) do
+ActiveRecord::Schema.define(:version => 20120712070122) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "owner_id",         :null => false
+    t.integer  "commentable_id",   :null => false
+    t.string   "commentable_type", :null => false
+    t.text     "body",             :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -21,6 +30,27 @@ ActiveRecord::Schema.define(:version => 20120308215846) do
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
+
+  create_table "myposts", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.string   "image_url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "myposts", ["user_id", "created_at"], :name => "index_myposts_on_user_id_and_created_at"
+
+  create_table "pinposts", :force => true do |t|
+    t.string   "url_image"
+    t.string   "title"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "image"
+  end
+
+  add_index "pinposts", ["user_id", "created_at"], :name => "index_pinposts_on_user_id_and_created_at"
 
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"

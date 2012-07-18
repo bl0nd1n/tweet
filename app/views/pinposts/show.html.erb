@@ -1,0 +1,1 @@
+<li>  <span class="title"><%= pinpost.title %></span>    <span class="img"><%=link_to image_tag(pinpost.image.thumb.url.to_s),  pinpost.image.url  %></span>     <span class="timestamp">    Posted <%= time_ago_in_words(pinpost.created_at) %> ago.	  </span></li>

@@ -1,0 +1,14 @@
+<div id="container">
+
+  <span class="title"><%= mypost.content %></span>
+<div class="center hero-unit">
+   <span class="img"><%=image_tag(mypost.image_url) %></span>
+</div>
+
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(mypost.created_at) %> ago.
+
+
+
+</div>
+

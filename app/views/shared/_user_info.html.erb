@@ -1,5 +1,5 @@
 <a href="<%= user_path(current_user) %>">
-  <%= gravatar_for current_user, size: 52 %>
+  <%= gravatar_for current_user, size: 72 %>
 </a>
 <h1>
   <%= current_user.name %>
@@ -8,5 +8,8 @@
   <%= link_to "view my profile", current_user %>
 </span>
 <span>
-  <%= pluralize(current_user.microposts.count, "micropost") %>
+  <%= pluralize(current_user.myposts.count, "mypost") %>
+</span>
+<span>
+  <%= pluralize(current_user.pinposts.count, "pinpost") %>
 </span>

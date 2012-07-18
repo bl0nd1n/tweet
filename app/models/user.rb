@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
   has_secure_password
+  has_many :myposts, dependent: :destroy
+  has_many :pinposts, dependent: :destroy
   has_many :microposts, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
@@ -19,6 +21,19 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+  
+   def feed_me
+ Mypost.from_users_followed_by(self)
+  end
+  
+  def feed_all
+      Mypost.where(id)
+  end
+  
+  def feed_pin
+  Pinpost.where(id)
+  end
+  
   def feed
     Micropost.from_users_followed_by(self)
   end

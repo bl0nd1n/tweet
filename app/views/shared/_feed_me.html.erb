@@ -1,0 +1,8 @@
+<% if @feed_me_items.any? %>
+  <ol class="pinposts">
+    <%= render partial: 'shared/feed_me_item', collection: @feed_me_items %>
+
+  </ol>
+  <%= will_paginate @feed_me_items %>
+<% end %>
+</div>

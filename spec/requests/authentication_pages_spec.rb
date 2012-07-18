@@ -125,6 +125,19 @@ describe "Authentication" do
         end
       end
 
+	  describe "in the Pinposts controller" do
+
+        describe "submitting to the create action" do
+          before { post pinposts_path }
+          specify { response.should redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete pinpost_path(FactoryGirl.create(:pinpost)) }
+          specify { response.should redirect_to(signin_path) }
+        end
+      end
+	  
       describe "in the Relationships controller" do
         describe "submitting to the create action" do
           before { post relationships_path }
