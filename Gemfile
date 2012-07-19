@@ -14,6 +14,7 @@ gem 'russian'
  gem 'rmagick'
  gem "mini_magick"
 gem "opinio"
+gem "bundler"
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
@@ -30,7 +31,7 @@ group :assets do
 end
 
 #Deploy Capistrano
-  gem 'capistrano'
+  gem 'rvm-capistrano'
 
 group :test do
   gem 'capybara', '1.1.2'
