@@ -16,6 +16,7 @@ before_filter :signed_in_user, only: [:create, :destroy]
   def show
     @mypost = Mypost.find(params[:id])
     @feed_me_items = []
+	#@comment = @mypost.comments.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @mypost }

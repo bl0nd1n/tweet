@@ -15,6 +15,7 @@ gem 'russian'
  gem "mini_magick"
 gem "opinio"
 gem "bundler"
+gem 'acts_as_commentable_with_threading'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
