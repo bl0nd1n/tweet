@@ -28,10 +28,10 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: picpin_prod
+  database: 
   pool: 5
-  username: bl0ndin
-  password: Nike00ns,
+  username: 
+  password: 
   host: localhost
 
 cucumber:
